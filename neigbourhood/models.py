@@ -3,6 +3,14 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 # Create your models here.
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='profile')
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    bio = models.CharField(max_length=255)
+    profile_pic = models.ImageField(upload_to='profile/')
+    pub_date_created = models.DateTimeField(auto_now_add=True, null=True)
+    neighbourhood = models.ForeignKey('Neighbourhood', blank=True, null=True)
 
 class Business(models.Model):
     name = models.CharField(max_length=255)
