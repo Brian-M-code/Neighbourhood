@@ -21,7 +21,7 @@ def neighbourhood(request, pk):
     current_user = request.user
     neighbourhood = Neighbourhood.objects.get(pk=pk)
     business = Business.get_business(business.id)
-    form = Post(request.Post)
+    form = PostForm(request.Post)
     
     if request.method == 'POST':
         if form.is_valid:
@@ -33,4 +33,6 @@ def neighbourhood(request, pk):
             return redirect('index')
     
     else:
-        fo
+        post = PostForm()
+        
+    return render (request, 'post.html', {'form':form, 'neighbourhood':neighbourhood, 'business':business})
