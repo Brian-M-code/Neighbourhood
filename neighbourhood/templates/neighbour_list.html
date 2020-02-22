@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}My Hood{% endblock title %}
+
+{% block content %}
+{% for neighbourhood in object_list %}
+    <div class="card">
+        <div class="card-header">
+            <span class="font-weight-bold">{{ neighbourhood.Name || upper }}</span> &middot;
+            <span class="text-muted">{{ neighbourhood.location }} |
+            {{ neighbourhood.occupants }}</span>
+        </div>
+    <div class="card-body">
+        <div class="col-md-6">
+            {{ neighbourhood.business }}
+        </div>
+        <div class="col-md-6">
+            {{ neighbourhood.post }}
+        </div>
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">Add</a> | <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>

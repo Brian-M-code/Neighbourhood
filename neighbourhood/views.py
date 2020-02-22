@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView
+from .models import Neighbourhood
 
 # Create your views here.
 def signup(request):
@@ -17,11 +19,9 @@ def index(request):
     }
     return render(request, 'index.html', context,{"neighbourhood":neighbourhood})
 
-def neighbourhood(request, pk):
-    current_user = request.user
-    neighbourhood = Neighbourhood.objects.get(pk=pk)
-    business = Business.get_business(business.id)
-    form = PostForm(request.Post)
+class NeighbourhoodListView(ListView):
+    model = Neighbourhood
+    template_name = 'neighbour_list.html'
     
     if request.method == 'POST':
         if form.is_valid:
