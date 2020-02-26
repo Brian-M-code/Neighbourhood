@@ -1,0 +1,96 @@
+*{
+  font-family: 'Sriracha', cursive;
+  font-family: 'Kalam', cursive;
+  background-image: url('https://images.hdqwalls.com/download/silhouette-wooden-houses-above-sea-sunet-hh-2560x1700.jpg');
+  background-repeat: no-repeat;
+  
+  }
+  h1 {
+  
+    font-size: 40px;
+    color:black;
+    text-shadow: 0px 0px 1px #B0FFB4, 0px 0px 1px #B5FDB9, 0px 0px 1px #BDFFC1,
+      0px 0px 1px #C9FFBD, 0px 0px 1px #D6FFBD;
+  }
+  h1:hover {
+    font-size: 0;
+  }
+  h1:hover:before {
+    content: attr(data-hover);
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #ADFED1;
+    text-shadow: 0px 0px 1px #FBAED2, 0px 0px 1px #FFB7D5, 0px 0px 1px #FFA6C9,
+      0px 0px 1px #46F7C2, 0px 0px 1px #0BE3C6;
+  }
+  input {
+      outline: none;
+  }
+  input[type=search] {
+      -webkit-appearance: textfield;
+      -webkit-box-sizing: content-box;
+      font-family: inherit;
+      font-size: 100%;
+  }
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button {
+      display: none;
+  }
+  input[type=search] {
+      background: #EDEDED url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png(850 B)
+https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png
+) no-repeat 9px center;
+      border: solid 1px rgb(253, 244, 244);
+      padding: 9px 10px 9px 32px;
+      width: 100px;
+      -webkit-border-radius: 10em;
+      -moz-border-radius: 10em;
+      border-radius: 10em;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      transition: all .5s;
+  }
+  input[type=search]:focus {
+      width: 200px;
+      background-color: #fff;
+      border-color: rgb(99, 238, 120);
+      -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+      -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+      box-shadow: 0 0 5px rgba(109,207,246,.5);
+  }
+  input:-moz-placeholder {
+      color: #999;
+  }
+  input::-webkit-input-placeholder {
+      color: #999;
+  }
+  #moda{
+    background: url('/static/pics/image (1).jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  #quotes{
+    background: url('/static/pics/M3_exterior_D.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+Message Osman mohamed
+
+

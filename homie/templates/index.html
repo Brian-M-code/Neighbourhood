@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+{% block content %}
+  {{block.super}}
+  <div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+    <div class="content text-center">
+      <h1 data-hover="The Hoods">
+        Welcome To hoodwatch</h1>
+        <p>An amazing place to relate to your hood</p>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+    <a href="{% url 'new-hood'%}">
+      <button class="btn btn-outline-dark btn-sm">Create a neighborhood</button>
+    </a>
+    <hr>
+    <div class="row">
+      {% for hood in hoods%}
+        <div class="col-md-4 col-lg-4 col-sm-6 ">
+          <div style="" class="card">
+            <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+              <h5>{{ hood.name}}</h5>
+            </div>
+            <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
+              <img class="img-responsive" src="{{hood.image.url}}" alt="" height="200px" width="300px">
+            </div>
+            <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+              <a href="/hoods/{{ hood.id}}">
+                <button class="btn btn-outline-primary btn-sm">Join neighborhood &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <br>
+          <br>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+

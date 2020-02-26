@@ -1,4 +1,4 @@
-#!/home/mutumas/Documents/python/Django/Django-IPs/neighbourhood/virtual/bin/python3.6
+#!/home/mutumas/Documents/python/Django/neighbourhood/virtual/bin/python3.6
 # EASY-INSTALL-ENTRY-SCRIPT: 'pyuploadcare==2.6.0','console_scripts','ucare'
 __requires__ = 'pyuploadcare==2.6.0'
 import re

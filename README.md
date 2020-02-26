@@ -1,7 +1,6 @@
-# Project: Neighbourhood
+# Neighbourhood
 
-## Author
-- Brian Mutuma
+
   
 # Description  
 This is a project where users are able to join hoods,post hoods and view some business activities in the hood
