@@ -39,6 +39,17 @@ def edit_profile(request):
         signup_form =EditForm()
     return render(request, 'profile/edit_profile.html', {"date": date, "form":signup_form,"profile":profile})
 
+def search_results(request):
+    if 'business' in request.GET and request.GET["business"]:
+        search_term = request.GET.get("business")
+        searched_businesses = Business.objects.filter(name=search_term)
+        message = f"{search_term}"
+        profiles=  Profile.objects.all( )
+        return render(request, 'search.html',{"message":message,"business": searched_businesses,'profiles':profiles})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+
 
 class NeighbourhoodListView(ListView):
     model = Neighbourhood

@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{% block content %}
+  {{block.super}}
+  <div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+    <div class="content text-center">
+      <h1 data-hover="The Hoods">
+        Neighbourhood</h1>
+        <p>Experience your Neighbourhood</p>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+    <a href="{% url 'new-hood'%}">
+      <button class="btn btn-outline-dark btn-sm">Create a neighborhood</button>
+    </a>
+    <hr>
+    <div class="row">
+      {% for neighborhood in neighbourhoods%}
+        <div class="col-md-4 col-lg-4 col-sm-6 ">
+          <div style="" class="card">
+            <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+              <h5>{{ neighbourhood.name}}</h5>
+            </div>
+            <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
+              <img class="img-responsive" src="{{neighbourhood.image.url}}" alt="" height="200px" width="300px">
+            </div>
+            <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+              <a href="/neighbourhood/{{ neighbourhood.id}}">
+                <button class="btn btn-outline-primary btn-sm">Join neighborhood &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <br>
+          <br>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+  {% endblock %}
+
+
+
+
+
+
+
+
+
