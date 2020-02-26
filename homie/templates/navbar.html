@@ -2,7 +2,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/" style="color: white">Hoodwatch
+    <a class="navbar-brand" href="/" style="color: white">NeighbourHood
     </a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -34,11 +34,11 @@
           <span>{{ user.username}}</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile/">Profile</a>
-          <a class="dropdown-item" href="/admin/">Admin</a>
-          <a class="dropdown-item" href="/accounts/password/change">Change password</a>
+          <a class="dropdown-item" href="/profile/" style="color: white;">Profile</a>
+          <a class="dropdown-item" href="/admin/" style="color: white;">Admin</a>
+          <a class="dropdown-item" href="/accounts/password/change" style="color: white;">Change password</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Log out</a>
+          <a class="dropdown-item" href="/logout" style="color: white;">Log out</a>
         </div>
       </h4>
       <form role="search" action="{% url 'search_results' %}" class="form-inline my-2 my-lg-0">
