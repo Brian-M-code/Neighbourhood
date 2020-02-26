@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http  import HttpResponse
 from django.views.generic import ListView
 from .models import Neighbourhood
 
@@ -19,20 +20,28 @@ def index(request):
     }
     return render(request, 'index.html', context,{"neighbourhood":neighbourhood})
 
+def profile(request):
+    date = dt.date.today()
+    current_user = request.user
+    profile = Profile.objects.get(user=current_user.id)
+    hoods = Neighbourhood.objects.all()
+    return render(request, 'profile/profile.html', {"date": date, "profile":profile,"hoods":hoods})
+def edit_profile(request):
+    date = dt.date.today()
+    current_user = request.user
+    profile = Profile.objects.get(user=current_user.id)
+    if request.method == 'POST':
+        signup_form = EditForm(request.POST, request.FILES,instance=request.user.profile)
+        if signup_form.is_valid():
+            signup_form.save()
+            return redirect('profile')
+    else:
+        signup_form =EditForm()
+    return render(request, 'profile/edit_profile.html', {"date": date, "form":signup_form,"profile":profile})
+
+
 class NeighbourhoodListView(ListView):
     model = Neighbourhood
     template_name = 'neighbour_list.html'
     
-    if request.method == 'POST':
-        if form.is_valid:
-            post = form.save(commit=False)
-            post.user = current_user
-            post.post = post
-            post.post_id = post.id
-            post.save()
-            return redirect('index')
-    
-    else:
-        post = PostForm()
-        
-    return render (request, 'post.html', {'form':form, 'neighbourhood':neighbourhood, 'business':business})
+   
