@@ -94,7 +94,7 @@ def hoods(request,id):
     post=Neighbourhood.objects.get(id=id)
     brushs = Post.objects.filter(neighbourhood=post)
     business = Business.objects.filter(neighbourhood=post)
-    return render(request,'each_hood.html',{"post":post,brushs":brushs, "business":business})
+    return render(request,'each_hood.html',{"post":post, "brushs":brushs, "business":business})
 
 def post_new(request,id):
     date = dt.date.today()

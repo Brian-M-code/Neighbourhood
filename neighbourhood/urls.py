@@ -12,11 +12,11 @@ urlpatterns=[
     url(r'^edit/profile/$',views.edit_profile,name='edit_profile'),
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^new/hood$', views.new_hood, name='new-hood'),
-    url(r'^neighbourhood/new/post/(\d+)$', views.post_new, name='new-post'),
-    url(r'^neighbourhood/new/comment/(\d+)',views.newcomment, name='newcomment'),
+    url(r'^hoods/new/post/(\d+)$', views.post_new, name='new-post'),
+    url(r'^hoods/new/comment/(\d+)',views.newcomment, name='newcomment'),
     url(r'^map$', views.maps, name='maps'),
-    url(r'^neighbourhood/new/business/(\d+)$',views.post_business, name='new-business'),
-    url(r'^neighbourhood/(\d+)',views.hoods,name='hoods'),
+    url(r'^hoods/new/business/(\d+)$',views.post_business, name='new-business'),
+    url(r'^hoods/(\d+)',views.hoods,name='hoods'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
