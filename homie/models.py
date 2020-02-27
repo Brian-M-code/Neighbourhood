@@ -38,6 +38,28 @@ class Neighbourhood(models.Model):
         self.save()
     def delete_neighbourhood(self):
         self.delete()
+     @classmethod
+    def find_neighborhood_by_id(cls,id):
+        neighborhood_result = cls.objects.get(id=id)
+        return neighborhood_result
+
+    @classmethod
+    def update_occupants(cls,current_value,new_value):
+        fetched_object = cls.objects.filter(count=current_value).update(count=new_value)
+        return fetched_object
+
+    @classmethod
+    def update_neighborhood(cls,current_value,new_value):
+        fetched_object = cls.objects.filter(count=current_value).update(count=new_value)
+        return fetched_object
+
+
+    @classmethod
+    def retrieve_all(cls):
+        all_objects = Neighborhood.objects.all()
+        for item in all_objects:
+            return item
+        
 class Business(models.Model):
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
