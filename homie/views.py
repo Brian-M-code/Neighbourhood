@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import render
 from django.http  import HttpResponse,Http404
-import datetime as dt
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.http import HttpResponse
@@ -12,7 +10,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-# from token import account_activation_token
+
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 def signup(request):
@@ -38,17 +36,17 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 def index(request):
-    date = dt.date.today()
+    
     hoods = Neighbourhood.objects.all()
-    return render(request, 'index.html',{"date":date, "hoods":hoods})
+    return render(request, 'index.html',{"hoods":hoods})
 def profile(request):
-    date = dt.date.today()
+    
     current_user = request.user
     profile = Profile.objects.get(user=current_user.id)
     hoods = Neighbourhood.objects.all()
-    return render(request, 'profile/profile.html', {"date": date, "profile":profile,"hoods":hoods})
+    return render(request, 'profile/profile.html', {"profile":profile,"hoods":hoods})
 def edit_profile(request):
-    date = dt.date.today()
+    
     current_user = request.user
     profile = Profile.objects.get(user=current_user.id)
     if request.method == 'POST':
@@ -58,7 +56,7 @@ def edit_profile(request):
             return redirect('profile')
     else:
         signup_form =EditForm()
-    return render(request, 'profile/edit_profile.html', {"date": date, "form":signup_form,"profile":profile})
+    return render(request, 'profile/edit_profile.html', { "form":signup_form,"profile":profile})
 @login_required(login_url='/accounts/login/')
 def search_results(request):
     if 'business' in request.GET and request.GET["business"]:
@@ -86,18 +84,16 @@ def new_hood(request):
         form = HoodForm()
     return render(request, 'new_hood.html', {"form": form})
 def maps(request):
-    date = dt.date.today()
-    return render(request, 'maps.html',{"date":date})
+    
+    return render(request, 'maps.html')
 @login_required(login_url='/accounts/login/')
 def hoods(request,id):
     current_user=request.user
-    date = dt.date.today()
     post=Neighbourhood.objects.get(id=id)
     brushs = Post.objects.filter(neighbourhood=post)
     business = Business.objects.filter(neighbourhood=post)
-    return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
+    return render(request,'each_hood.html',{"post":post, "brushs":brushs, "business":business})
 def post_new(request,id):
-    date = dt.date.today()
     hood=Neighbourhood.objects.get(id=id)
     posts = Post.objects.filter(neighbourhood=hood)
     comments = Comment.objects.filter(post=id).order_by('-pub_date')
@@ -113,7 +109,7 @@ def post_new(request,id):
             return redirect('index')
     else:
         form = PostForm()
-        return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,  "date":date, 'comments':comments})
+        return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,'comments':comments})
 def newcomment(request,id):
     current_user = request.user
     try:
@@ -132,7 +128,6 @@ def newcomment(request,id):
         form = NewCommentForm()
     return render(request, 'newcomment.html',{'brush':brush,"comments":comments,"form":form})
 def post_business(request,id):
-    date = dt.date.today()
     hood=Neighbourhood.objects.get(id=id)
     business = Business.objects.filter(neighbourhood=hood)
     form = BusinessForm()
@@ -146,4 +141,4 @@ def post_business(request,id):
             return redirect('index')
     else:
         form = BusinessForm()
-        return render(request,'new_business.html',{"form":form,"business":business,"hood":hood,  "date":date})
+        return render(request,'new_business.html',{"form":form,"business":business,"hood":hood})
